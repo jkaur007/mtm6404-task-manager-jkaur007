@@ -1,0 +1,18 @@
+.task-list {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Responsive Task List */
+  @media (max-width: 600px) {
+    .task-list {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+  
