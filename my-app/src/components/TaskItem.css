@@ -1,40 +1,57 @@
 /* src/components/TaskItem.css */
 
+/* Task Item Styles */
 .task-item {
-  background-color: #f8f9fa; /* Light background for the task item */
-  padding: 20px; /* Adequate padding */
+  flex: 1 1 calc(50% - 16px); /* Two items per row */
+  box-sizing: border-box;
+  padding: 16px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 16px; /* Space between items */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease; /* Smooth scale effect on hover */
+}
+
+.task-item:hover {
+  transform: scale(1.05); /* Slightly enlarge card on hover */
 }
 
 .task-item h3 {
-  font-size: 1.25rem; /* Adjusted size for the title */
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #333;
   font-weight: 600; /* Bold title */
-  margin-bottom: 8px; /* Space below the title */
 }
 
 .task-item p {
-  font-size: 0.875rem; /* Smaller text for description */
-  margin: 4px 0; /* Margins to create space between the lines */
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #666;
 }
 
 .task-item p.text-muted {
   color: #6c757d; /* Muted text color for less important information */
 }
 
+.task-item .task-meta {
+  font-size: 14px;
+  color: #999;
+}
+
 .task-item button {
-  background-color: #dc3545; /* Red background for delete button */
-  color: white; /* White text */
-  padding: 8px 16px; /* Padding for button */
+  background-color: #dc3545;
+  color: #fff;
+  padding: 8px 12px;
   border: none;
-  border-radius: 5px; /* Rounded button corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease-in-out; /* Smooth hover effect */
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .task-item button:hover {
-  background-color: #c82333; /* Darker red on hover */
+  background-color: #c82333;
 }
 
 .task-item button:focus {

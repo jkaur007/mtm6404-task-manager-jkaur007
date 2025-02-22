@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import TaskItem from "./TaskItem";
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./TaskList.css";  // Optional if you want to add custom CSS
+import "./TaskList.css";  
 
 const initialTasks = [
   { id: 1, title: "Complete React Assignment", description: "Work on Iteration 1", dueDate: "2025-02-25", priority: "High", category: "Work" },
@@ -95,7 +95,7 @@ const TaskList = () => {
           Add Task
         </button>
       </form>
-
+<h2>Tasks need to be done</h2>
       <div className="task-list-container">
         {tasks.map((task) => (
           <TaskItem key={task.id} task={task} onDelete={deleteTask} />

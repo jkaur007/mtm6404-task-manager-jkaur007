@@ -1,6 +1,6 @@
 /* Task List Card Styles */
 .task-list .task-item {
-  background:linear-gradient(90deg, rgb(188, 188, 188) ,rgb(225, 211, 247));/* White background for each card */
+  background: linear-gradient(90deg, #f0f4f8, #ffffff); /* Subtle gradient background */
   border-radius: 8px; /* Rounded corners for a soft card appearance */
   box-shadow: 0 8px 8px rgba(20, 23, 29, 0.217); /* Soft shadow for depth */
   margin-bottom: 50px; /* Space between the cards */
@@ -39,17 +39,126 @@
 .task-list .task-item .task-meta span {
   display: inline-block;
 }
+
 button {
   background-color: #d81717;
   color: white;
   padding: 10px 15px;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
-  width: 100px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
 }
+
+button:hover {
+  background-color: #c82333;
+}
+
+.task-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-list h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.add-task-form input,
+.add-task-form textarea,
+.add-task-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.add-task-form input:focus,
+.add-task-form textarea:focus,
+.add-task-form select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.add-task-form button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-task-form button:hover {
+  background-color: #0056b3;
+}
+
+.task-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.task-item {
+  flex: 1 1 calc(50% - 16px);
+  box-sizing: border-box;
+  padding: 16px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.task-item h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.task-item p {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.task-item .task-meta {
+  font-size: 14px;
+  color: #999;
+}
+
+.task-item button {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-item button:hover {
+  background-color: #c82333;
+}
+
 .task-list .task-item .delete-btn {
   background-color: #e74c3c; /* Red background for delete button */
   color: white;
@@ -63,4 +172,10 @@ button {
 
 .task-list .task-item .delete-btn:hover {
   background-color: #c0392b; /* Darker red on hover */
+}
+
+@media (max-width: 768px) {
+  .task-item {
+    flex: 1 1 100%;
+  }
 }
