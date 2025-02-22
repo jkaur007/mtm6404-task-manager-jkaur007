@@ -6,20 +6,21 @@
     align-items: center;
     padding: 7px;
     width: 100%;
-    height: 40px;
     box-sizing: border-box;
   }
   
   .navbar ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 30px;
     padding: 0;
     margin: 0;
   }
   
   .navbar ul li {
     display: inline;
+    gap:30px;
+    font-size: 40px;
   }
   
   .navbar a {

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 
-const Footer = () => {
+const Footer = ({children}) => {
   return (
     <footer className="footer">
       <p>&copy; {new Date().getFullYear()} Task Manager. All rights reserved.</p>
@@ -10,3 +10,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
