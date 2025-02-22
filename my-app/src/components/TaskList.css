@@ -1,18 +1,56 @@
-.task-list {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Responsive Task List */
-  @media (max-width: 600px) {
-    .task-list {
-      width: 100%;
-      padding: 10px;
-    }
-  }
-  
+/* Task List Card Styles */
+.task-list .task-item {
+  background-color: #ffffff; /* White background for each card */
+  border-radius: 8px; /* Rounded corners for a soft card appearance */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  margin-bottom: 20px; /* Space between the cards */
+  padding: 20px; /* Inner padding for each card */
+  display: flex;
+  flex-direction: column; /* Items in each card stacked vertically */
+  justify-content: space-between; /* Distribute space evenly inside card */
+  transition: transform 0.3s ease; /* Smooth scale effect on hover */
+}
+
+.task-list .task-item:hover {
+  transform: scale(1.05); /* Slightly enlarge card on hover */
+}
+
+.task-list .task-item h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px; /* Space below the title */
+  color: #333; /* Dark color for title */
+}
+
+.task-list .task-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555; /* Slightly lighter color for description */
+  margin-bottom: 10px;
+}
+
+.task-list .task-item .task-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #777; /* Lighter color for meta information */
+}
+
+.task-list .task-item .task-meta span {
+  display: inline-block;
+}
+
+.task-list .task-item .delete-btn {
+  background-color: #e74c3c; /* Red background for delete button */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.task-list .task-item .delete-btn:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
