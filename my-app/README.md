@@ -1,4 +1,4 @@
-# mtm6404-task-manager-jkaur007
+mtm6404-task-manager-username
 Project Overview
 This repository contains the task manager project built using React, JSX, and components. It includes the first iteration of a static site, designed to meet the initial project requirements.
 
@@ -16,7 +16,7 @@ To get started, clone this repository to your local machine:
 bash
 Copy
 Edit
-git clone https://github.com/jkaur007/mtm6404-task-manager-jkaur007.git
+git clone https://github.com/yourusername/mtm6404-task-manager-username.git
 2. Navigate to the Project Folder
 bash
 Copy
