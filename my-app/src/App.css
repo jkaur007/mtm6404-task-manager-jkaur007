@@ -1,53 +1,16 @@
-/* Overall Website Styles */
 
-/* General Reset */
-html{
-  box-sizing: border-box;
-  font-size: 16px;
+.card {
+  padding: 2em;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f6f9;
-  color: #333;
-
+.read-the-docs {
+  color: #888;
 }
+
 
 header h1 {
   font-size: 2.5rem;
   font-weight: bold;
-}
-
-/* Navigation Bar Styles */
-nav {
-  background-color: #2980b9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 0;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-nav ul li {
-  display: inline-block;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1rem;
-  padding: 8px 12px;
-  transition: background-color 0.3s;
-}
-
-nav ul li a:hover {
-  background-color: #1c6b8b;
-  border-radius: 4px;
 }
 
 /* Main Content */
@@ -55,7 +18,7 @@ nav ul li a:hover {
 
 .main-content h2 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .main-content p {
@@ -89,7 +52,7 @@ button {
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: #ecf27d;
 }
 
 /* Responsive Styles */

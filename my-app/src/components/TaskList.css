@@ -1,10 +1,10 @@
 /* Task List Card Styles */
 .task-list .task-item {
-  background-color: #ffffff; /* White background for each card */
+  background:linear-gradient(90deg, rgb(188, 188, 188) ,rgb(225, 211, 247));/* White background for each card */
   border-radius: 8px; /* Rounded corners for a soft card appearance */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  margin-bottom: 20px; /* Space between the cards */
-  padding: 20px; /* Inner padding for each card */
+  box-shadow: 0 8px 8px rgba(20, 23, 29, 0.217); /* Soft shadow for depth */
+  margin-bottom: 50px; /* Space between the cards */
+  padding: 50px; /* Inner padding for each card */
   display: flex;
   flex-direction: column; /* Items in each card stacked vertically */
   justify-content: space-between; /* Distribute space evenly inside card */
@@ -30,7 +30,7 @@
 }
 
 .task-list .task-item .task-meta {
-  display: flex;
+  display: grid;
   justify-content: space-between;
   font-size: 0.9rem;
   color: #777; /* Lighter color for meta information */
@@ -39,7 +39,17 @@
 .task-list .task-item .task-meta span {
   display: inline-block;
 }
-
+button {
+  background-color: #d81717;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100px;
+}
 .task-list .task-item .delete-btn {
   background-color: #e74c3c; /* Red background for delete button */
   color: white;

@@ -9,7 +9,7 @@
   }
   
   /* Responsive Footer */
-  @media (max-width: 600px) {
+  @media (max-width: 1200px) {
     .footer {
       font-size: 14px;
     }
