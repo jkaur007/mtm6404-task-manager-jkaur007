@@ -5,11 +5,12 @@ import Footer from "./components/Footer";
 import TaskList from "./components/TaskList";
 import Home from "./pages/Home";
 import Tasks from "./pages/Tasks";
-import About from "./pages/About";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css";
+import "./index.css";
 
-import UserGreeting from "./user/UserGreeting";
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import "./App.css";
+
+
 
 function App() {
   return (
@@ -17,11 +18,11 @@ function App() {
       <div className="app-container">
         <Navbar />
       
-        <main> <UserGreeting isLoggedIn ={false}></UserGreeting>
+        <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tasks" element={<Tasks />} />
-            <Route path="/about" element={<About />} />
+            
           </Routes>
          
         </main>

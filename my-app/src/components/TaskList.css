@@ -1,11 +1,25 @@
 /* Task List Card Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #e0f7fa, #ffffff);
+
+
+}
 .task-list .task-item {
-  background: linear-gradient(90deg, #f0f4f8, #ffffff); /* Subtle gradient background */
+  background-color: #bdffe4; /* White background for each card */
+  max-width: 900px;
+  width: 100%;
+  padding: 25px;
+  background: linear-gradient(120deg, #9fe2f5, #c1ede1); /* Change this */
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: 20px 0;
   border-radius: 8px; /* Rounded corners for a soft card appearance */
   box-shadow: 0 8px 8px rgba(20, 23, 29, 0.217); /* Soft shadow for depth */
   margin-bottom: 50px; /* Space between the cards */
   padding: 50px; /* Inner padding for each card */
-  display: flex;
+  display: grid;
   flex-direction: column; /* Items in each card stacked vertically */
   justify-content: space-between; /* Distribute space evenly inside card */
   transition: transform 0.3s ease; /* Smooth scale effect on hover */
@@ -41,7 +55,7 @@
 }
 
 button {
-  background-color: #d81717;
+  background-color: #12ad55;
   color: white;
   padding: 10px 15px;
   border: none;
