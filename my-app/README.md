@@ -1,55 +1,70 @@
-mtm6404-task-manager-username
-Project Overview
-This repository contains the task manager project built using React, JSX, and components. It includes the first iteration of a static site, designed to meet the initial project requirements.
+# Task Manager
 
-Features of Iteration 1:
-A navigation bar
-A list with at least 5 items
-A footer
-Responsive design optimized for multiple screen sizes
-Use of React 18.x and JSX for static site creation
-CSS frameworks and libraries used for styling (if applicable)
-Installation Instructions
-1. Clone the Repository
-To get started, clone this repository to your local machine:
+Task Manager is a productivity tool built with React that allows users to efficiently manage their tasks by providing a user-friendly interface to create, update, delete, and prioritize tasks. This web application enables users to stay organized and on top of their tasks with features such as task creation, priority sorting, task completion toggling, and list filtering.
 
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/mtm6404-task-manager-username.git
-2. Navigate to the Project Folder
-bash
-Copy
-Edit
-cd mtm6404-task-manager-username
-3. Install Dependencies
-Make sure you have Node.js installed. Then, run the following command to install the necessary dependencies:
+## Features
+- **Task Creation:** Quickly add tasks, set priorities, and track completion status.
+- **Task List Rendering:** Display tasks in a list format, with sorting based on priority.
+- **Task Filtering:** Show or hide completed tasks based on user preference.
+- **Task Completion Toggling:** Mark tasks as complete or incomplete.
+- **Delete Task:** Remove tasks from the list.
+- **Persistent Storage:** Task data is saved in local storage, ensuring data persists even after refreshing or closing the browser.
+- **Responsive Design:** Optimized for mobile, tablet, and desktop devices.
 
-bash
-Copy
-Edit
+## Components
+The application consists of the following React components:
+- **NavigationBar:** Provides navigation across the app.
+- **TaskList:** Displays all tasks dynamically, sorted by priority.
+- **TaskItem:** Represents each task item, showing task details, priority, and completion status. Allows toggling completion and deleting tasks.
+- **TaskForm:** Allows adding new tasks with specified name and priority.
+- **Footer:** Displays footer content with information about the app.
+
+## Getting Started
+
+### Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/task-manager.git
+```
+2. Navigate into the project directory:
+```bash
+cd task-manager
+```
+3. Install dependencies:
+```bash
 npm install
-4. Start the Development Server
-Once the dependencies are installed, start the development server:
-
-bash
-Copy
-Edit
+```
+4. Start the development server:
+```bash
 npm start
-This will launch the project in your default browser at http://localhost:3000.
+```
+5. Access the app at: [http://localhost:3000](http://localhost:3000)
 
-Usage
-The static site is built with React, featuring:
-A navigation bar at the top.
-A list with at least 5 items, each representing a task or element.
-A footer with basic information.
-The site is fully responsive and optimized to work on multiple screen sizes, such as desktops, tablets, and mobile phones.
-Challenges Faced
-This iteration involved setting up React with JSX and creating the basic components for the static site. Some challenges included ensuring responsiveness across screen sizes and setting up the navigation bar properly.
+### Usage
+- **Adding Tasks:** Fill out the "Task Name" and "Priority" fields in the form, and click "Add Task".
+- **Viewing Tasks:** Tasks are sorted by priority (High, Medium, Low) and show task details, priority, and completion status.
+- **Marking Tasks Complete/Incomplete:** Click the checkbox next to a task to toggle its completion status.
+- **Deleting Tasks:** Click the trash icon next to any task to remove it.
+- **Task Filtering:** Use the "Show Completed Tasks" checkbox to filter completed tasks.
 
-Future Enhancements
-In the upcoming iterations, additional functionality will be added, such as:
+## State Persistence
+The task list is saved to `localStorage`, ensuring data persists across browser sessions.
 
-Task management features
-Enhanced state management
-User interaction features (e.g., adding, editing, and deleting tasks)
+## Responsive Design
+The app is fully responsive, providing optimal user experience across devices.
+
+## Components Breakdown
+- **NavigationBar:** Contains links for navigation.
+- **TaskList:** Renders tasks dynamically, allows filtering and sorting.
+- **TaskItem:** Displays individual tasks with completion toggle and delete options.
+- **TaskForm:** Manages form state to add new tasks.
+- **Footer:** Provides general app information.
+
+## Technologies Used
+- React for UI.
+- CSS for styling.
+- localStorage for data persistence.
+
+## Conclusion
+Task Manager is a simple yet powerful tool to help users manage daily tasks efficiently. With features like task prioritization, completion toggling, and persistent storage, it offers a comprehensive solution for task management. The responsive design ensures accessibility across different devices.
+
