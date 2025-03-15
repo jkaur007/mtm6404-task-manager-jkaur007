@@ -62,9 +62,12 @@ const TaskList = () => {
   const toggleComplete = (id) => {
     setTasks(tasks.map(task => task.id === id ? { ...task, completed: !task.completed } : task));
   };
-
+  
+  const priorityOrder = { High: 1, Medium: 2, Low: 3 };
+  const sortedTasks = [...tasks].sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
+  
   // Fix: Use a copy of the array before sorting
-  const sortedTasks = [...tasks].sort((a, b) => a.priority.localeCompare(b.priority));
+  // const sortedTasks = [...tasks].sort((a, b) => a.priority.localeCompare(b.priority));
 
   return (
     <div className="task-list max-w-xl mx-auto mt-8">

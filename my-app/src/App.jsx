@@ -5,12 +5,8 @@ import Footer from "./components/Footer";
 import TaskList from "./components/TaskList";
 import Home from "./pages/Home";
 import Tasks from "./pages/Tasks";
-import "./index.css";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import "./App.css";
-
-
 
 function App() {
   return (
