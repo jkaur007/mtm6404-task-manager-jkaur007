@@ -4,12 +4,14 @@ export const PRIORITIES = {
     LOW: 'low'
   };
   
-  export const CATEGORIES = {
-    PERSONAL: 'personal',
-    WORK: 'work',
-    SHOPPING: 'shopping',
-    HEALTH: 'health'
-  };
+// constants.js
+export const CATEGORIES = {
+  PERSONAL: "personal",
+  WORK: "work",
+  SHOPPING: "shopping",
+  HEALTH: "health",
+};
+
   
   export const PRIORITY_COLORS = {
     high: 'red',

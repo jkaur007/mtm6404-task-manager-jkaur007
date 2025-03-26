@@ -3,7 +3,19 @@ body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(120deg, #e0f7fa, #ffffff);
 
+  .task {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    width: 200px;
+    text-align: center;
+  }
 
+  .task.high { background-color: red; }
+  .task.medium { background-color: yellow; color: black; }
+  .task.low { background-color: green; }
 }
 .task-list .task-item {
   background-color: #bdffe4; /* White background for each card */

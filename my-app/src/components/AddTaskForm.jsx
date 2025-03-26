@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import './AddTaskForm.css';
 
 const AddTaskForm = ({ addTask }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
   const [priority, setPriority] = useState("Medium");
+  const [category, setCategory] = useState("General");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +15,7 @@ const AddTaskForm = ({ addTask }) => {
       description,
       dueDate,
       priority,
+      category,
       completed: false
     };
     addTask(newTask);
@@ -22,6 +23,7 @@ const AddTaskForm = ({ addTask }) => {
     setDescription("");
     setDueDate("");
     setPriority("Medium");
+    setCategory("General");
   };
 
   return (
@@ -49,6 +51,7 @@ const AddTaskForm = ({ addTask }) => {
         <option value="High">High</option>
         <option value="Medium">Medium</option>
         <option value="Low">Low</option>
+
       </select>
       <button type="submit">Add Task</button>
     </form>

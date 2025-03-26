@@ -12,6 +12,21 @@
   margin-bottom: 16px; /* Space between items */
   transition: transform 0.3s ease; /* Smooth scale effect on hover */
 }
+.task-item {
+  transition: all 0.3s ease;
+}
+
+.task-item.completed {
+  background-color: #d4edda; /* Light green background for completed tasks */
+}
+
+.task-item .btn {
+  transition: background-color 0.3s ease;
+}
+
+.task-item .btn:hover {
+  opacity: 0.8;
+}
 
 .task-item:hover {
   transform: scale(1.05); /* Slightly enlarge card on hover */
