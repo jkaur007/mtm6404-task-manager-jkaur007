@@ -4,15 +4,8 @@ import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./TaskList.css";
 
-const initialTasks = [
-  { id: 1, title: "Complete React Assignment", description: "Work on Iteration 1", dueDate: "2025-02-25", priority: "High", category: "Work", completed: false },
-  { id: 2, title: "Review PRs", description: "Check the pull requests on GitHub", dueDate: "2025-02-22", priority: "Medium", category: "Work", completed: false },
-  { id: 3, title: "Read Documentation", description: "Go through React 18 docs", dueDate: "2025-02-23", priority: "Low", category: "Study", completed: false },
-  { id: 4, title: "Test UI Responsiveness", description: "Ensure design works on all screens", dueDate: "2025-02-24", priority: "High", category: "Work", completed: false },
-  { id: 5, title: "Push Code to GitHub", description: "Commit changes and push to repo", dueDate: "2025-02-21", priority: "Medium", category: "Work", completed: false },
-];
-
 const TaskList = () => {
+
   const [tasks, setTasks] = useState(() => {
     const savedTasks = localStorage.getItem('tasks');
     return savedTasks ? JSON.parse(savedTasks) : initialTasks;

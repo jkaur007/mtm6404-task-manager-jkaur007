@@ -2,7 +2,7 @@ import React from "react";
 import './TaskItem.css'; // Import custom CSS for styling
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { PlusCircle } from 'lucide-react';
-import { PRIORITIES, CATEGORIES } from '../constants/taskConstants';
+
 
 const TaskItem = ({ task, onDelete, onToggleComplete }) => {
   return (
