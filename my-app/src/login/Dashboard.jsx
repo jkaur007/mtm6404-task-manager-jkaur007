@@ -1,21 +1,24 @@
 import React from 'react';
-import { useAuth } from './AuthContext';
+import TaskList from '../components/TaskList';
+import { useAuth } from '../login/AuthContext';
+
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
-  const { user, logout } = useAuth();
+  const { logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate('/');
   };
 
   return (
-    <div>
-      <h2>Dashboard</h2>
-      <p>Welcome, {user?.name}!</p>
-      <button onClick={handleLogout}>Logout</button>
+    <div className="dashboard-container">
+      <h1>Welcome to Your Dashboard!</h1>
+      <button onClick={handleLogout} className="logout-btn">Logout</button>
+
+      <TaskList /> 
     </div>
   );
 };

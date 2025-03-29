@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TaskItem from "./TaskItem";
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./TaskList.css";
+import { useTaskContext } from "./TaskContext";
 
 const TaskList = () => {
+  const { tasks, addTask, deleteTask, toggleComplete } = useTaskContext();
 
-  const [tasks, setTasks] = useState(() => {
-    const savedTasks = localStorage.getItem('tasks');
-    return savedTasks ? JSON.parse(savedTasks) : initialTasks;
-  });
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -17,28 +15,16 @@ const TaskList = () => {
   const [category, setCategory] = useState("General");
   const [showCompleted, setShowCompleted] = useState(true);
 
-  // Save tasks to local storage whenever tasks update
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
-
-  useEffect(() => {
-    console.log("Current Tasks:", tasks); // Debugging log
-  }, [tasks]);
-
-  const addTask = (e) => {
+  const handleAddTask = (e) => {
     e.preventDefault();
     if (title.trim() && description.trim()) {
-      const newTask = {
-        id: tasks.length + 1,
+      addTask({
         title,
         description,
         dueDate,
         priority,
         category,
-        completed: false,
-      };
-      setTasks([...tasks, newTask]);
+      });
       setTitle("");
       setDescription("");
       setDueDate("");
@@ -47,26 +33,14 @@ const TaskList = () => {
     }
   };
 
-  const deleteTask = (id) => {
-    const updatedTasks = tasks.filter((task) => task.id !== id);
-    setTasks(updatedTasks);
-  };
-
-  const toggleComplete = (id) => {
-    setTasks(tasks.map(task => task.id === id ? { ...task, completed: !task.completed } : task));
-  };
-  
   const priorityOrder = { High: 1, Medium: 2, Low: 3 };
   const sortedTasks = [...tasks].sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
-  
-  // Fix: Use a copy of the array before sorting
-  // const sortedTasks = [...tasks].sort((a, b) => a.priority.localeCompare(b.priority));
 
   return (
     <div className="task-list max-w-xl mx-auto mt-8">
       <h2 className="text-2xl font-bold mb-4">Tasks</h2>
 
-      <form onSubmit={addTask} className="add-task-form space-y-4 mb-6">
+      <form onSubmit={handleAddTask} className="add-task-form space-y-4 mb-6">
         <input
           type="text"
           placeholder="Task Title"
