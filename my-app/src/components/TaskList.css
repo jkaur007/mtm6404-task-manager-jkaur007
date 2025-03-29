@@ -1,27 +1,14 @@
 /* Task List Card Styles */
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(120deg, #e0f7fa, #ffffff);
-
+  background: linear-gradient(180deg, #946def, #1e0455);
 
 }
-.content {
-  background-color: rgba(255, 255, 255, 0.15); 
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px); 
-  width: 90%;
-  max-width: 800px;
-  margin: 2rem auto;
-}
-
 .task-list .task-item {
-  background-color: #bdffe4; /* White background for each card */
+  background-color: #428ace; /* White background for each card */
   max-width: 900px;
   width: 100%;
   padding: 25px;
-  background: linear-gradient(120deg, #9fe2f5, #c1ede1); /* Change this */
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   text-align: center;

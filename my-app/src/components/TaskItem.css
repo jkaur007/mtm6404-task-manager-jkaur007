@@ -5,7 +5,7 @@
   flex: 1 1 calc(50% - 16px); /* Two items per row */
   box-sizing: border-box;
   padding: 16px;
-  background-color: #fff;
+  background-color: #909293;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
