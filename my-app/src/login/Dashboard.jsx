@@ -3,6 +3,7 @@ import TaskList from '../components/TaskList';
 import { useAuth } from '../login/AuthContext';
 
 import { useNavigate } from 'react-router-dom';
+import TaskItem from '../components/TaskItem';
 
 const Dashboard = () => {
   const { logout } = useAuth();
@@ -18,7 +19,7 @@ const Dashboard = () => {
       <h1>Welcome to Your Dashboard!</h1>
       <button onClick={handleLogout} className="logout-btn">Logout</button>
 
-      <TaskList /> 
+     
     </div>
   );
 };

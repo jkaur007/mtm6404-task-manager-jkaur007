@@ -3,11 +3,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 2.5rem;
- background-image:url(../navbar.jpg); ;
+
+ background-image:url(../bg5.jpg); 
+ background-size: cover; /* Ensures the entire image fits */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+   width: 100%;
+
+
   color: white;
   font-family:'Times New Roman', Times, serif;
   text-shadow: 2px 2px 4px #000000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(12, 12, 12, 0.299);
 }
 
 .navbar h1 {

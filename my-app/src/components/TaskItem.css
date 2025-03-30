@@ -5,13 +5,59 @@
   flex: 1 1 calc(50% - 16px); /* Two items per row */
   box-sizing: border-box;
   padding: 16px;
-  background-color: #909293;
-  border: 1px solid #ddd;
+  background-color: #99bebb;
+  border: 1px solid #898989;
   border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 3px rgba(0, 0, 0, 0.637);
   margin-bottom: 16px; /* Space between items */
   transition: transform 0.3s ease; /* Smooth scale effect on hover */
 }
+.task-card {
+  background-color: #f0f8ff;  /* Soft pastel blue */
+  border: 2px solid #4CAF50;  /* Fresh green accent */
+  border-radius: 12px;        /* Smooth rounded corners */
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 20px;
+  margin-bottom: 15px;        /* Spacing between cards */
+  transition: transform 0.2s ease-in-out; /* Subtle hover effect */
+}
+
+.task-card:hover {
+  transform: scale(1.03);     /* Slight zoom on hover */
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+.task-title {
+  font-weight: bold;
+  color: #333;                /* Dark gray for text */
+  margin-bottom: 8px;
+}
+
+.task-description {
+  color: #555;                /* Medium gray for descriptions */
+}
+
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #777;
+}
+
+.task-button {
+  background-color: #4CAF50;  /* Green for success */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.task-button:hover {
+  background-color: #45a049;  /* Darker green on hover */
+}
+
 
 .task-item:hover {
   transform: scale(1.05); /* Slightly enlarge card on hover */
@@ -40,7 +86,7 @@
 }
 
 .task-item button {
-  background-color: #dc3545;
+  background-color: #136d3d;
   color: #fff;
   padding: 8px 12px;
   border: none;
@@ -48,13 +94,4 @@
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.task-item button:hover {
-  background-color: #c82333;
-}
-
-.task-item button:focus {
-  outline: none; /* Remove outline on focus */
-  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5); /* Focus outline effect */
 }

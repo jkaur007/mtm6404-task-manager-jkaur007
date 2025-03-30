@@ -1,6 +1,6 @@
 /* Task List Card Styles */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, sans-serif;
   background: linear-gradient(180deg, #946def, #1e0455);
 
 }
@@ -64,7 +64,7 @@ button {
 }
 
 button:hover {
-  background-color: #c82333;
+  background-color: #d0db34;
 }
 
 .task-list {
@@ -157,7 +157,7 @@ button:hover {
 }
 
 .task-item button {
-  background-color: #dc3545;
+  background-color: #247d39;
   color: #fff;
   padding: 8px 12px;
   border: none;

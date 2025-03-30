@@ -85,8 +85,8 @@ const TaskList = () => {
           Add Task
         </button>
       </form>
-
-      <h2>Tasks need to be done</h2>
+<div>
+    <b> <h2>Tasks need to be Done</h2></b>
       <Button onClick={() => setShowCompleted(!showCompleted)} className="mb-4">
         {showCompleted ? 'Hide Completed' : 'Show Completed'}
       </Button>
@@ -96,6 +96,7 @@ const TaskList = () => {
           <TaskItem key={task.id} task={task} onDelete={deleteTask} onToggleComplete={toggleComplete} />
         ))}
       </div>
+    </div>
     </div>
   );
 };

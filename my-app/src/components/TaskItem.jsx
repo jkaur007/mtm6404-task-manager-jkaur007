@@ -1,31 +1,23 @@
-import React from "react";
-import './TaskItem.css'; // Import custom CSS for styling
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { PlusCircle } from 'lucide-react';
+import React from 'react';
+import { Card, Button } from 'react-bootstrap';
 
-
-const TaskItem = ({ task, onDelete, onToggleComplete }) => {
-  return (
-    <div className={`task-item bg-light p-4 mb-4 rounded shadow-sm ${task.completed ? 'completed' : ''}`}>
-      <h3 className="h5 font-weight-bold mb-2">{task.title}</h3>
-      <p>{task.description}</p>
-      <p className="text-muted mb-1">Due: {task.dueDate}</p>
-      <p className="text-muted mb-1">Priority: {task.priority}</p>
-      <p className="text-muted mb-1">Status: {task.completed ? 'Completed' : 'Incomplete'}</p>
-      <button
-        onClick={() => onToggleComplete(task.id)}
-        className="btn btn-success px-4 py-2 mt-2"
-      >
-        {task.completed ? 'Mark Incomplete' : 'Mark Complete'}
-      </button>
-      <button
-        onClick={() => onDelete(task.id)}
-        className="btn btn-danger px-4 py-2 mt-2"
-      >
-        Delete
-      </button>
-    </div>
-  );
-};
+const TaskItem = ({ task, onDelete, onToggleComplete }) => (
+  <Card className={`mb-3 shadow ${task.completed ? 'bg-success text-white' : 'bg-light'}`}>
+    <Card.Body>
+      <Card.Title>{task.title}</Card.Title>
+      <Card.Text>
+        {task.description}
+        <br />
+        <strong>Due Date:</strong> {task.dueDate || 'No date'}
+      </Card.Text>
+      <div className="d-flex justify-content-between">
+        <Button variant="warning" onClick={() => onToggleComplete(task.id)}>
+          {task.completed ? 'Undo' : 'Complete'}
+        </Button>
+        <Button variant="danger" onClick={() => onDelete(task.id)}>Delete</Button>
+      </div>
+    </Card.Body>
+  </Card>
+);
 
 export default TaskItem;
