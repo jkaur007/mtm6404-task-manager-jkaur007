@@ -22,7 +22,7 @@ const Navbar = () => {
         <li><Link to="/completed-tasks" onClick={toggleMenu} className={isActive("/completed-tasks")}>Completed</Link></li>
         <li><Link to="/login" onClick={toggleMenu} className={isActive("/login")}>Log In</Link></li>
         <li><Link to="/signup" onClick={toggleMenu} className={isActive("/signup")}>Sign Up</Link></li>
-        <li><Link to="/dashboard" onClick={toggleMenu} className={isActive("/dashboard")}>Dashboard</Link></li>
+     
       </ul>
     </nav>
   );

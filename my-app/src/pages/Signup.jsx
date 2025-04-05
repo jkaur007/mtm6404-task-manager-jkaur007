@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import './style.css';
 
 const Signup = () => {
@@ -31,6 +32,10 @@ const Signup = () => {
                 />
                 <button type="submit">Signup</button>
             </form>
+
+            <p style={{ textAlign: 'center', marginTop: '1rem' }}>
+                Already have an account? <Link to="/login">Login here</Link>
+            </p>
         </div>
     );
 };

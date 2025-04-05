@@ -1,103 +1,64 @@
-import React, { useState } from "react";
-import TaskItem from "./TaskItem";
-import { Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "./TaskList.css";
-import { useTaskContext } from "./TaskContext";
+import React, { useState } from 'react';
+import TaskItem from './TaskItem';
+import { useTaskContext } from './TaskContext';
 
 const TaskList = () => {
-  const { tasks, addTask, deleteTask, toggleComplete } = useTaskContext();
-
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [dueDate, setDueDate] = useState("");
-  const [priority, setPriority] = useState("Medium");
-  const [category, setCategory] = useState("General");
+  const { tasks, addTask } = useTaskContext();
+  const [form, setForm] = useState({
+    title: '', description: '', dueDate: '', priority: 'Medium', category: 'General'
+  });
   const [showCompleted, setShowCompleted] = useState(true);
 
-  const handleAddTask = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (title.trim() && description.trim()) {
-      addTask({
-        title,
-        description,
-        dueDate,
-        priority,
-        category,
-      });
-      setTitle("");
-      setDescription("");
-      setDueDate("");
-      setPriority("Medium");
-      setCategory("General");
+    if (form.title && form.description) {
+      addTask(form);
+      setForm({ title: '', description: '', dueDate: '', priority: 'Medium', category: 'General' });
     }
   };
 
   const priorityOrder = { High: 1, Medium: 2, Low: 3 };
   const sortedTasks = [...tasks].sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
+  const grouped = sortedTasks.reduce((acc, task) => {
+    acc[task.category] = acc[task.category] || [];
+    acc[task.category].push(task);
+    return acc;
+  }, {});
 
   return (
-    <div className="task-list max-w-xl mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-4">Tasks</h2>
-
-      <form onSubmit={handleAddTask} className="add-task-form space-y-4 mb-6">
-        <input
-          type="text"
-          placeholder="Task Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-          className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-500"
-        />
-        <textarea
-          placeholder="Task Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
-          className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-500"
-        />
-        <input
-          type="date"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
-          className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-500"
-        />
-        <select
-          value={priority}
-          onChange={(e) => setPriority(e.target.value)}
-          className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-500"
-        >
-          <option value="High">High</option>
-          <option value="Medium">Medium</option>
-          <option value="Low">Low</option>
+    <>
+      <form onSubmit={handleSubmit} className="card p-4 mb-4 shadow">
+        <h4>Add Task</h4>
+        <input className="form-control mb-2" name="title" placeholder="Title" value={form.title} onChange={handleChange} required />
+        <textarea className="form-control mb-2" name="description" placeholder="Description" value={form.description} onChange={handleChange} required />
+        <input type="date" className="form-control mb-2" name="dueDate" value={form.dueDate} onChange={handleChange} />
+        <select className="form-select mb-2" name="priority" value={form.priority} onChange={handleChange}>
+          <option>High</option><option>Medium</option><option>Low</option>
         </select>
-        <input
-          type="text"
-          placeholder="Category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-500"
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
-        >
-          Add Task
-        </button>
+        <input className="form-control mb-3" name="category" placeholder="Category" value={form.category} onChange={handleChange} />
+        <button className="btn btn-primary">Add Task</button>
       </form>
-<div>
-    <b> <h2>Tasks need to be Done</h2></b>
-      <Button onClick={() => setShowCompleted(!showCompleted)} className="mb-4">
-        {showCompleted ? 'Hide Completed' : 'Show Completed'}
-      </Button>
 
-      <div className="task-list-container">
-        {sortedTasks.filter(task => showCompleted || !task.completed).map(task => (
-          <TaskItem key={task.id} task={task} onDelete={deleteTask} onToggleComplete={toggleComplete} />
-        ))}
-      </div>
-    </div>
-    </div>
+      <button className="btn btn-outline-secondary mb-3" onClick={() => setShowCompleted(!showCompleted)}>
+        {showCompleted ? "Hide Completed Tasks" : "Show Completed Tasks"}
+      </button>
+
+      {Object.entries(grouped).map(([category, catTasks]) => (
+        <div key={category}>
+          <h5 className="text-decoration-underline mb-3">Category: <span className="badge bg-dark">{category}</span></h5>
+          <div className="row">
+            {catTasks
+              .filter(task => showCompleted || !task.isCompleted)
+              .map(task => <TaskItem key={task.id} task={task} />)}
+          </div>
+        </div>
+      ))}
+    </>
   );
 };
 

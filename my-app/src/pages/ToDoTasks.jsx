@@ -1,20 +1,21 @@
 import React from 'react';
-import TaskItem from '../components/TaskItem';
 import { useTaskContext } from '../components/TaskContext';
+import TaskItem from '../components/TaskItem';
 
 const ToDoTasks = () => {
-  const { toDoTasks, deleteTask, toggleComplete } = useTaskContext();
+  const { tasks } = useTaskContext();
+  const toDoTasks = tasks.filter((task) => !task.completed);
 
   return (
-    <div className="task-page">
+    <div>
       <h2>To-Do Tasks</h2>
-      {toDoTasks.length > 0 ? (
-        toDoTasks.map(task => (
-          <TaskItem key={task.id} task={task} onDelete={deleteTask} onToggleComplete={toggleComplete} />
-        ))
-      ) : (
-        <p>No tasks to do. Enjoy your day! 😊</p>
-      )}
+      <div className="row">
+        {toDoTasks.length === 0 ? (
+          <p>No to-do tasks yet.</p>
+        ) : (
+          toDoTasks.map((task) => <TaskItem key={task.id} task={task} />)
+        )}
+      </div>
     </div>
   );
 };

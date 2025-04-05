@@ -1,48 +1,109 @@
-import React, { useState } from 'react';
-import { useAuth } from '../login/AuthContext';
-import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import { useState } from "react";
+import { db } from "../firebase";
+import { doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { Link } from "react-router-dom";
+import "./login.css"; // Make sure this import is correct!
 
-const Login = () => {
-  const { login } = useAuth();
-  const navigate = useNavigate();
+function Login() {
+  const [fname, setfname] = useState("");
+  const [lname, setlname] = useState("");
+  const [email, setEmail] = useState("");
+  const [users, setUsers] = useState([]);
+  const [showUsers, setShowUsers] = useState(false);
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const userDocRef = doc(db, "users", "userList");
 
-  const handleLogin = (e) => {
+  const fetchUsers = async () => {
+    try {
+      const docSnap = await getDoc(userDocRef);
+      if (docSnap.exists()) {
+        setUsers(docSnap.data().users || []);
+        setShowUsers(true);
+      }
+    } catch (error) {
+      console.error("Error fetching the users", error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (username === 'Jasmine' && password === '123') {
-      login({ name: 'Jasmine' });
-      navigate('/dashboard'); // Redirect to dashboard
-    } else {
-      alert('Invalid username or password');
+    try {
+      const docSnap = await getDoc(userDocRef);
+      if (!docSnap.exists()) {
+        await setDoc(userDocRef, { users: [{ fname, lname, email }] });
+      } else {
+        await updateDoc(userDocRef, {
+          users: arrayUnion({ fname, lname, email }),
+        });
+      }
+      setfname("");
+      setlname("");
+      setEmail("");
+      alert("User added successfully!");
+    } catch (error) {
+      console.log("Error during document update", error);
     }
   };
 
   return (
     <div className="login-container">
       <h2>Login</h2>
-      <form onSubmit={handleLogin} className="login-form">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="fname">First Name</label>
         <input
           type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          id="fname"
+          value={fname}
+          onChange={(e) => setfname(e.target.value)}
+          placeholder="Enter your first name"
           required
         />
+
+        <label htmlFor="lname">Last Name</label>
         <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          type="text"
+          id="lname"
+          value={lname}
+          onChange={(e) => setlname(e.target.value)}
+          placeholder="Enter your last name"
           required
         />
-        <button type="submit">Login</button>
+
+        <label htmlFor="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+          required
+        />
+
+        <button type="submit">Add User</button>
       </form>
+
+      <p style={{ marginTop: "1rem", textAlign: "center" }}>
+        Don't have an account? <Link to="/signup">Sign up here</Link>
+      </p>
+
+      <button onClick={fetchUsers} style={{ marginTop: "1rem" }}>
+        Show Users
+      </button>
+
+      {showUsers && (
+        <>
+          <h2>User List</h2>
+          <ul>
+            {users.map((user, index) => (
+              <li key={index}>
+                {user.fname} {user.lname} – {user.email}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
-};
+}
 
 export default Login;
